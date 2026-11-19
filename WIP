@@ -1,0 +1,26 @@
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{lettrine}
+\usepackage{microtype}
+
+% Format A4 portrait
+\geometry{
+    a4paper,
+    margin=20mm
+}
+
+% Police principale
+\setmainfont{TeX Gyre Pagella}
+
+% Police des titres
+\newfontfamily\titlefont{TeX Gyre Chorus}
+
+% Présentation générale
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Lettrines
+\renewcommand{\LettrineFontHook}{}
+\setcounter{DefaultLines}{3}
+\renewcommand{\DefaultLoversize}{0.15}

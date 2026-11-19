@@ -1,0 +1,443 @@
+% !TeX program = xelatex
+% ============================================================
+% MEYRUEIS — au fil du temps
+% Nouvelle édition corrigée et remise en page
+%
+% Document principal
+%
+% Document d'origine
+% https://www.calameo.com/read/00500001099e542e47fc5
+% ============================================================
+
+\documentclass[a4paper,11pt,twoside]{article}
+
+% ------------------------------------------------------------
+% Langue et typographie
+% ------------------------------------------------------------
+
+\usepackage[french]{babel}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage[normalem]{ulem}
+
+\usepackage{lettrine}
+
+% ------------------------------------------------------------
+% Mise en page par défaut
+% ------------------------------------------------------------
+
+\usepackage[
+    a4paper,
+    top=2.00cm,
+    bottom=2.00cm,
+    left=1.70cm,
+    right=1.70cm
+]{geometry}
+
+% ------------------------------------------------------------
+% Table des matières
+% ------------------------------------------------------------
+
+\usepackage{tocloft}
+\usepackage[hidelinks]{hyperref}
+
+\renewcommand{\sectionmark}[1]{%
+  \markboth{\thesection\enspace–\enspace#1}{}%
+}
+
+\renewcommand{\subsectionmark}[1]{%
+  \markright{\thesubsection\enspace–\enspace#1}%
+}
+
+% Points de conduite sur toutes les lignes
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+% Densité des points
+\renewcommand{\cftdotsep}{1}
+
+\usepackage{titlesec}
+
+\renewcommand{\cftsecaftersnum}{\enspace–\enspace}
+\renewcommand{\cftsubsecaftersnum}{\enspace–\enspace}
+\renewcommand{\cftsubsubsecaftersnum}{\enspace\textperiodcentered\enspace}
+
+
+
+% --- Espacement et retraits de la TDM ---
+
+% Sections
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsecnumwidth}{3.2em}
+
+% Sous-sections
+\setlength{\cftsubsecindent}{1.2em}
+\setlength{\cftsubsecnumwidth}{3.5em}
+
+% Sous-sous-sections
+\setlength{\cftsubsubsecindent}{3.0em}
+\setlength{\cftsubsubsecnumwidth}{4.8em}
+
+% Séparateurs après les numéros
+\renewcommand{\cftsecaftersnum}{\enspace–\enspace}
+\renewcommand{\cftsubsecaftersnum}{\enspace–\enspace}
+\renewcommand{\cftsubsubsecaftersnum}{\enspace\textperiodcentered\enspace}
+
+% Espacement vertical
+\setlength{\cftbeforesecskip}{0.45em}
+\setlength{\cftbeforesubsecskip}{0pt}
+\setlength{\cftbeforesubsubsecskip}{0pt}
+
+% ------------------------------------------------------------
+% Titres
+% ------------------------------------------------------------
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection\enspace–\enspace}
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {\thesubsection\enspace–\enspace}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsubsection\enspace\textperiodcentered\enspace}
+  {0pt}
+  {}
+
+% ------------------------------------------------------------
+% Mise en page des pages
+% ------------------------------------------------------------
+
+% Page avec marges
+\newcommand{\pagenormale}{%
+    \newgeometry{
+        top=2.00cm,
+        bottom=2.00cm,
+        left=1.70cm,
+        right=1.70cm
+    }%
+}
+
+% Page pleine
+\newcommand{\pagepleine}{%
+    \newgeometry{
+        top=0cm,
+        bottom=0cm,
+        left=0cm,
+        right=0cm
+    }%
+}
+
+% Papier quadrillé type scolaire ancien
+\newcommand{\papierquadrille}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[
+        gray!25,
+        line width=0.25pt,
+        step=5mm
+    ]
+      (current page.south west)
+      grid
+      (current page.north east);
+  \end{tikzpicture}%
+}
+
+% ------------------------------------------------------------
+% Paragraphes en subsubsubsection et subparagraph en subsubsubsubsection
+% ------------------------------------------------------------
+
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\paragraph}
+  {\normalfont\normalsize\bfseries}
+  {\theparagraph}
+  {1em}
+  {}
+
+\titlespacing*{\paragraph}
+  {0pt}
+  {3.25ex plus 1ex minus .2ex}
+  {1.5ex plus .2ex}
+
+\newcommand{\subsubsubsection}[1]{%
+  \paragraph{#1}
+}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+\titleformat{\subparagraph}
+  {\normalfont\normalsize\bfseries}
+  {\thesubparagraph}
+  {1em}
+  {}
+
+\titlespacing*{\subparagraph}
+  {0pt}
+  {3ex plus 1ex minus .2ex}
+  {1.2ex plus .2ex}
+
+\newcommand{\subsubsubsubsection}[1]{%
+  \subparagraph{#1}
+}
+
+% ------------------------------------------------------------
+% Packages
+% ------------------------------------------------------------
+
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{wrapfig}
+\usepackage{xspace}
+\usepackage{etoolbox}
+\usepackage{qrcode}
+\usepackage{bigfoot}
+\DeclareNewFootnote{default}
+\setlength{\skip\footinsdefault}{0pt}
+\interfootnotelinepenalty=10000
+
+% ------------------------------------------------------------
+% Typographie
+% ------------------------------------------------------------
+
+%\usepackage{lmodern}
+\usepackage{microtype}
+
+\newfontfamily\EBGaramond{EB Garamond 12 Regular}[
+    Numbers={OldStyle,Proportional}
+]
+
+\newfontfamily\Junicode{Junicode}
+
+% ------------------------------------------------------------
+% PDF
+% ------------------------------------------------------------
+
+\usepackage{pdfpages}
+
+% ------------------------------------------------------------
+% Images
+% ------------------------------------------------------------
+
+\usepackage{graphicx}
+
+% ------------------------------------------------------------
+% Mise en forme
+% ------------------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{float}
+
+% Colonnes personnalisées pour les tableaux
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\newcommand{\citationblock}[1]{%
+    \begin{center}
+      \begin{minipage}{0.89\textwidth}
+      \itshape #1
+      \end{minipage}
+    \end {center}
+}
+
+\usepackage{afterpage}
+\newcommand\myemptypage{%
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+}
+% ------------------------------------------------------------
+% Réglages généraux
+% ------------------------------------------------------------
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlength{\emergencystretch}{1em}
+
+% ------------------------------------------------------------
+% Informations du document
+% ------------------------------------------------------------
+
+\newfontfamily\CouvertureFont{Noto Serif}
+
+\newcommand{\Titre}{MEYRUEIS}
+\newcommand{\SousTitre}{au fil du temps...}
+\newcommand{\Edition}{Documents rassemblés en 2006\\par Paul Loupiac,\\complétés en 2008\\---\\Nouvelle édition annotée\\et remise en page de 2026}
+\newcommand{\Infos}{Ce document a été compilé en LaTeX en 2026\\Les images ont été recrées à l'aide de systèmes génératifs\\Pour la version orginale, merci de vous reporter à:\\\DocumentOriginalURL}
+\newcommand{\Auteur}{Paul Loupiac}
+\newcommand{\Dates}{1622 - 2000}
+\newcommand{\edition}{Édition 1.0.0}
+
+\newcommand{\DocumentOriginalURL}{https://www.calameo.com/read/00500001099e542e47fc5}
+\newcommand{\ThisDocumentURL}{https://matlecurieux.fr/wp-content/uploads/2026/11/Meyrueis_au-fil-du-temps.pdf}
+\newcommand{\ThisDocumentQR}{
+    \href{\ThisDocumentURL}{%
+          \textbf{Téléchargez ce document au format PDF}
+        }
+}
+\newcommand{\DocumentOriginalQR}{
+\href{\DocumentOriginalURL}{%
+      \textbf{Consultez le document original}
+    }
+}
+\newcommand{\myemail}{contact@matlecurieux.fr}
+
+% ------------------------------------------------------------
+% Pagination
+% ------------------------------------------------------------
+
+\pagestyle{plain}
+
+% ------------------------------------------------
+% Sections avec date facultative
+% ------------------------------------------------
+
+\usepackage{etoolbox}
+
+\newcommand{\sectiondate}[2]{%
+    \ifstrempty{#2}{%
+        \section{#1}%
+        \markboth{#1}{}%
+    }{%
+        \section[#1 --- #2]{#1}%
+        \markboth{#1}{#2}%
+    }%
+}
+
+%\newcommand{\sectiondate}[2]{%
+%    \section[#1\if\relax\detokenize{#2}\relax\else\ --- #2\fi]{#1}%
+%    \markboth{#1}{#2}%
+%}
+
+\newcommand{\subsectionheader}[1]{%
+    \subsection{#1}%
+    \markright{#1}%
+}
+
+
+% ------------------------------------------------
+% En-têtes et pieds de page
+% ------------------------------------------------
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+% Pages impaires
+\fancyhead[LO]{%
+  \parbox[b]{0.47\textwidth}{\raggedright\small
+    \nouppercase{\leftmark}}%
+}
+\fancyhead[RO]{%
+  \parbox[b]{0.47\textwidth}{\raggedleft\small
+    \nouppercase{\rightmark}}%
+}
+\fancyfoot[LO]{Paul Loupiac}
+\fancyfoot[RO]{\thepage}
+
+% Pages paires
+\fancyhead[LE]{%
+  \parbox[b]{0.47\textwidth}{\raggedright\small
+    \nouppercase{\rightmark}}%
+}
+\fancyhead[RE]{%
+  \parbox[b]{0.47\textwidth}{\raggedleft\small
+    \nouppercase{\leftmark}}%
+}
+\fancyfoot[LE]{\thepage}
+\fancyfoot[RE]{Paul Loupiac}
+
+% Liserés
+\renewcommand{\headrule}{%
+  {\color{gray!55}\hrule width\headwidth height 0.25pt}%
+}
+\renewcommand{\footrule}{%
+  {\color{gray!55}\hrule width\headwidth height 0.25pt}%
+}
+
+\setlength{\headheight}{14pt}
+
+% ------------------------------------------------
+% Footnotes
+% ------------------------------------------------
+
+\newcommand{\minifootnote}[1]{%
+  \footnotemark
+  \footnotetext{#1}%
+}
+
+% ============================================================
+% DOCUMENT
+% ============================================================
+
+\begin{document}
+
+
+% ==============================
+% DÉBUT DU LIVRE
+% ==============================
+
+\pagenumbering{arabic}
+%\setcounter{page}{1}
+
+
+% ------------------------------------------------------------
+% Pages préliminaires
+% ------------------------------------------------------------
+
+\pagenumbering{gobble}
+
+\pagenumbering{arabic}
+
+
+% ------------------------------------------------------------
+% Première de couverture : A4 pleine page
+% ------------------------------------------------------------
+\pagepleine
+
+%\input{pages/001-première-de-couverture}
+%\includepdf{pdf/001.pdf}
+%\clearpage
+%\newpage
+
+% ------------------------------------------------------------
+% Retour au format du livre : A4 avec marges
+% ------------------------------------------------------------
+\pagenormale
+
+%\input{pages/002-page de garde}
+%\clearpage
+
+%\input{pages/003-toc}
+%\clearpage
+
+% La première page numérotée du document original est la page 1.
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{pages/001}
+\clearpage
+
+
+
+%\input{pages/028-quatrième-de-couverture}
+%\clearpage
+
+\end{document}

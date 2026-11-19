@@ -1,0 +1,48 @@
+
+% ------------------------------------------------
+% Page de présentation - Alban
+% Encadrements et panneau vertical
+% ------------------------------------------------
+
+\begin{tikzpicture}[remember picture,overlay]
+
+  % Cadre vertical ALBAN
+  \draw[line width=0.45pt]
+    ([xshift=30.5mm,yshift=-21mm]current page.north west)
+    rectangle
+    ([xshift=63.1mm,yshift=-175mm]current page.north west);
+
+  \draw[line width=0.25pt]
+    ([xshift=31.5mm,yshift=-22mm]current page.north west)
+    rectangle
+    ([xshift=62.1mm,yshift=-174mm]current page.north west);
+
+  % Lettres verticales
+  \foreach \lettre/\pos in {
+    A/32,
+    L/68,
+    B/99,
+    A/133,
+    N/164
+  } {
+    \node[
+      font=\Large\bfseries,
+      anchor=center
+    ] at
+    ([xshift=46.8mm,yshift=-\pos mm]
+      current page.north west)
+    {\lettre};
+  }
+
+  % Cadre principal
+  \draw[line width=0.55pt]
+    ([xshift=75.5mm,yshift=-17.4mm]current page.north west)
+    rectangle
+    ([xshift=217.6mm,yshift=-175.5mm]current page.north west);
+
+  \draw[line width=0.25pt]
+    ([xshift=76.5mm,yshift=-18.4mm]current page.north west)
+    rectangle
+    ([xshift=216.6mm,yshift=-174.5mm]current page.north west);
+
+\end{tikzpicture}
