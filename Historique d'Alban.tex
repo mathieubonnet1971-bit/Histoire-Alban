@@ -21,16 +21,10 @@
 \usepackage[normalem]{ulem}
 
 \usepackage{fontspec}
-\usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{lettrine}
 \usepackage{microtype}
 
-% Format A4 portrait
-\geometry{
-    a4paper,
-    margin=20mm
-}
 
 % Police principale
 \setmainfont{TeX Gyre Pagella}
@@ -50,14 +44,14 @@
 % ------------------------------------------------------------
 % Mise en page par défaut
 % ------------------------------------------------------------
-
-%\usepackage[
-%    a4paper,
-%    top=2.00cm,
-%    bottom=2.00cm,
-%    left=1.70cm,
-%    right=1.70cm
-%]{geometry}
+% Format A4 portrait
+\usepackage[
+    a4paper,
+    top=2.00cm,
+    bottom=2.00cm,
+    left=1.70cm,
+    right=1.70cm
+]{geometry}
 
 % ------------------------------------------------------------
 % Table des matières
@@ -300,16 +294,16 @@
 
 \newfontfamily\CouvertureFont{Noto Serif}
 
-\newcommand{\Titre}{MEYRUEIS}
-\newcommand{\SousTitre}{au fil du temps...}
-\newcommand{\Edition}{Documents rassemblés en 2006\\par Paul Loupiac,\\complétés en 2008\\---\\Nouvelle édition annotée\\et remise en page de 2026}
+\newcommand{\Titre}{ALBAN}
+\newcommand{\SousTitre}{}
+\newcommand{\Edition}{Document ???}
 \newcommand{\Infos}{Ce document a été compilé en LaTeX en 2026\\Les images ont été recrées à l'aide de systèmes génératifs\\Pour la version orginale, merci de vous reporter à:\\\DocumentOriginalURL}
-\newcommand{\Auteur}{Paul Loupiac}
+\newcommand{\Auteur}{Auteur???}
 \newcommand{\Dates}{1622 - 2000}
 \newcommand{\edition}{Édition 1.0.0}
 
-\newcommand{\DocumentOriginalURL}{https://www.calameo.com/read/00500001099e542e47fc5}
-\newcommand{\ThisDocumentURL}{https://matlecurieux.fr/wp-content/uploads/2026/11/Meyrueis_au-fil-du-temps.pdf}
+\newcommand{\DocumentOriginalURL}{https://matlecurieux.fr/wp-content/uploads/2027/}
+\newcommand{\ThisDocumentURL}{https://matlecurieux.fr/wp-content/uploads/2027/}
 \newcommand{\ThisDocumentQR}{
     \href{\ThisDocumentURL}{%
           \textbf{Téléchargez ce document au format PDF}
@@ -374,7 +368,7 @@
   \parbox[b]{0.47\textwidth}{\raggedleft\small
     \nouppercase{\rightmark}}%
 }
-\fancyfoot[LO]{Paul Loupiac}
+\fancyfoot[LO]{Auteur???}
 \fancyfoot[RO]{\thepage}
 
 % Pages paires
@@ -387,7 +381,7 @@
     \nouppercase{\leftmark}}%
 }
 \fancyfoot[LE]{\thepage}
-\fancyfoot[RE]{Paul Loupiac}
+\fancyfoot[RE]{Auteur???}
 
 % Liserés
 \renewcommand{\headrule}{%
@@ -545,6 +539,57 @@
 \clearpage
 
 \input{pages/030}
+\clearpage
+
+\input{pages/031}
+\clearpage
+
+\input{pages/032}
+\clearpage
+
+\input{pages/033}
+\clearpage
+
+\input{pages/034}
+\clearpage
+
+\input{pages/035}
+\clearpage
+
+\input{pages/036}
+\clearpage
+
+\input{pages/037}
+\clearpage
+
+\input{pages/038}
+\clearpage
+
+\input{pages/039}
+\clearpage
+
+\input{pages/040}
+\clearpage
+
+\input{pages/041}
+\clearpage
+
+\input{pages/042}
+\clearpage
+
+\input{pages/043}
+\clearpage
+
+\input{pages/044}
+\clearpage
+
+\input{pages/045}
+\clearpage
+
+\input{pages/046}
+\clearpage
+
+\input{pages/047}
 \clearpage
 
 %\input{pages/028-quatrième-de-couverture}
